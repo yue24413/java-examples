@@ -5,7 +5,7 @@
 [K个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/description/?envType=study-plan-v2&envId=top-100-liked)
 ##### 做法
 思路：链表中K个一组切割，结合反转链表代码进行反转，最后再连接。
-[Java 2024-08-19 时间：0ms/100.00% 内存：43.27MB/43.31%](./src/main/java/com/algorithm/hot100/LinkedList/AGroupOfKFlippedLists)
+[Java 2024-08-19 时间：0ms/100.00% 内存：43.27MB/43.31%](./src/main/java/com/algorithm/hot100/LinkedList/AGroupOfKFlippedLists/Main.java)
 
 #### 138.随机链表的复制
 [随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/?envType=study-plan-v2&envId=top-100-liked)
@@ -15,19 +15,36 @@
 <ul>
 <li>
 思路1：在每个节点后面新建一个一模一样的新节点，即先复制在了原有链表中，所有节点复制完成后，再通过每个结点random指向的，下一个节点(复制的一模一样的，指向random的结点)的next；
-最后，再将每个复制的节点拆下来，组装成一条链表。
-[Java 2024-08-20 时间：0ms/100.00% 内存：43.34MB/71.14%](./src/main/java/com/algorithm/hot100/LinkedList/ReplicationOfARandomLinkedList)
+最后，再将每个复制的节点拆下来，组装成一条链表。 <br>
+
+[Java 2024-08-20 时间：0ms/100.00% 内存：43.34MB/71.14%](./src/main/java/com/algorithm/hot100/LinkedList/ReplicationOfARandomLinkedList/Main.java)
 </li>
 <li>
 思路2：哈希表 <br>
 创建一个哈希表，遍历原有链表，作为key,同时不断创建新节点作为value放入哈希表。
-则：map.get(源节点)；map.get(源节点.next)；map.get(源节点.random)
-[Java 2024-08-20 时间：0ms/100.00% 内存：43.28MB/83.76%](./src/main/java/com/algorithm/hot100/LinkedList/ReplicationOfARandomLinkedList)
+则：map.get(源节点)；map.get(源节点.next)；map.get(源节点.random) <br>
 
+[Java 2024-08-20 时间：0ms/100.00% 内存：43.28MB/83.76%](./src/main/java/com/algorithm/hot100/LinkedList/ReplicationOfARandomLinkedList/Main.java)
 </li>
 </ul>
 
+### Hash
+#### 1.两数之和
+[两数之和](https://leetcode.cn/problems/two-sum/?envType=study-plan-v2&envId=top-100-liked)
+##### 做法：
+map.containsKey()的应用，用于检查给定的键是否存在于map中，若当前值是x,x+y=target，可在map中用此方法
+查找y即可，即map.containsKey(target-x); <br>
+[Java 2024-08-20 时间：3ms/48.68% 内存：44.08MB/17.02%](./src/main/java/com/algorithm/hot100/LinkedList/ReplicationOfARandomLinkedList/Main.java)
 
-
+#### 49.字母异位词分组
+[字母异位词分组](https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked)
+##### 做法：
+先将数组的每个元素，即字符串拆成一个个字符放入一个字符数组中，然后对他们排序，得到的字符数组若不存在map中，
+put，作为sort的键(字符数组转换成的字符串 String.valueOf(chars))；<br>
+computeIfAbsent 方法用于在 HashMap 中获取或计算键对应的值。 <br>
+当排序好的字符串在map中，没有作为键，则重新创建ArrayList<>()；若存在，加入到出现键的数组里；<br>
+则：strToListMap.computeIfAbsent(String.valueOf(chars), key -> new ArrayList<>()).add(str);
+最后，将这些值转换为一个 Stream，最后将这些值收集到一个新的 List 中
+[Java 2024-08-21 时间：9ms/29.25% 内存：46.68MB/65.67%](./src/main/java/com/algorithm/hot100/Hash/GroupingOfAllogramWords/Main.java)
 
 
