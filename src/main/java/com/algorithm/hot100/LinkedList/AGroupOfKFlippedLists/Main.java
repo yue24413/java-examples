@@ -1,7 +1,6 @@
 package com.algorithm.hot100.LinkedList.AGroupOfKFlippedLists;
 
 public class Main {
-
     public static class ListNode {
         int val;
         ListNode next;
@@ -19,35 +18,35 @@ public class Main {
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        ListNode dummy = new ListNode(0, head);
-        ListNode pre = dummy;
-        ListNode end = dummy;
-
-        while (true) {
-            ListNode start = pre;
-            for (int i = 0; i < k; i++) {
-                if (end == null) return dummy.next;
-                end = end.next;
-            }
-            ListNode next = end.next;
-            end.next = null;
-            pre.next = reverse(start.next);
-            start.next = next;
-            pre = start;
-            end = pre;
+        ListNode hnode = new ListNode(0,head);
+        ListNode pre = hnode;
+        ListNode a = hnode;
+        ListNode b = hnode;
+        ListNode next = null;
+        while (b != null){
+            for(int i = 0; i<k && (b != null);i++) b = b.next;
+            if(b == null) break;
+            next = b.next;
+            pre = a;
+            a = a.next;
+            pre.next = b;
+            b.next = null;
+            reverse(a);
+            a.next = next;
+            pre.next = b;
+            b = a;
         }
+        return hnode.next;
     }
-
-    public ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode nextTemp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextTemp;
+    public void reverse(ListNode node){
+        ListNode pre = null;
+        ListNode cur = node;
+        while(cur != null){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
-        return prev;
     }
 
     public static void printList(ListNode head) {
