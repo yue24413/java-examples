@@ -41,10 +41,21 @@ map.containsKey()的应用，用于检查给定的键是否存在于map中，若
 ##### 做法：
 先将数组的每个元素，即字符串拆成一个个字符放入一个字符数组中，然后对他们排序，得到的字符数组若不存在map中，
 put，作为sort的键(字符数组转换成的字符串 String.valueOf(chars))；<br>
-computeIfAbsent 方法用于在 HashMap 中获取或计算键对应的值。 <br>
+
+<ul>
+<li>computeIfAbsent 方法用于在 HashMap 中获取或计算键对应的值。 <br>
 当排序好的字符串在map中，没有作为键，则重新创建ArrayList<>()；若存在，加入到出现键的数组里；<br>
 则：strToListMap.computeIfAbsent(String.valueOf(chars), key -> new ArrayList<>()).add(str);
-最后，将这些值转换为一个 Stream，最后将这些值收集到一个新的 List 中
+最后，将这些值转换为一个 Stream，最后将这些值收集到一个新的 List 中。 <br>
+
 [Java 2024-08-21 时间：9ms/29.25% 内存：46.68MB/65.67%](./src/main/java/com/algorithm/hot100/Hash/GroupingOfAllogramWords/Main.java)
+</li>
+<li>
+使用map.getOrDefault(String.valueOf(chars), new ArrayList())更好理解也更省时。
+return 也可以不用流，return new ArrayList,类型是List,泛型为String,即为map.values()。
+相比流式操作，构造函数性能可能会更好，但对于额外操作（如过滤、排序等）不如流式方便。
+</li>
+</ul>
+
 
 
