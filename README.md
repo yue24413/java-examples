@@ -57,5 +57,14 @@ return 也可以不用流，return new ArrayList,类型是List,泛型为String,�
 </li>
 </ul>
 
+### 双指针
+#### 11.盛最多水的容器
+[盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&envId=top-100-liked)
+##### 做法：
+容量的大小由两方面控制：高度与长度；
+倘若现在两个指针指向开始和结束的位置，长度最长，高度取决于较短的一边；若长度内的某个高度比较短的还短，那容量的高变低，长度也更低，不可能有更大容量；
+若长度内的某个高度比较短的高，长度变短，高度还是较短的一边，长度变短，高度不变，还是不可能有更大的容量。只有不断更新最短高度才有可能找到更大容量。
+当一边相较于另一边更短的时候，较短的一边“内移动”一个位置，得到的容量再与当前得到的最大容量比较。
+[Java 2024-08-2 时间 3ms/92.83% 内存：56.59MB/54.41%](./src/main/java/com/algorithm/hot100/DoublePointer/MaximumWater/Main.java)
 
 

@@ -1,8 +1,5 @@
 package com.algorithm.hot100.Hash.LongestContinuousSequence;
-
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Main {
     /*基础写法*/
@@ -17,12 +14,9 @@ public class Main {
             else j = 1;
             i++;
             if(j>sum) sum = j;
-
         }
         return sum;
     }
-
-
     public static void main(String[] args) {
       int[] nums = {100,4,200,1,3,2};
       Main m = new Main();
