@@ -87,9 +87,12 @@ left和right取较小值乘以长度，再把left和right里面夹的每个位�
 [Java 2024-08-23 时间 1ms/69.67% 内存：45.63MB/5.74%](./src/main/java/com/algorithm/hot100/DoublePointer/CatchRainwater/Main.java)
 </li>
 <li>
-思路2：想计算某个位置的接水量，则要找到这个位置的左边最高和右边最高，两个的较小值减去当前位置的高即为当前位置的接水量。
+思路2：想计算某个位置的接水量，则要找到这个位置的左边最高和右边最高，两个的较小值减去当前位置的高即为当前位置的接水量。此方法更简洁一点，相较于第一种，空间复杂度更低。
 
-[Java 2024-08-23 时间 1ms/69.67% 内存：45.63MB/5.74%](./src/main/java/com/algorithm/hot100/DoublePointer/CatchRainwater/Main.java)
+[Java 2024-08-23 时间 1ms/69.67% 内存：45.06MB/48.43%](./src/main/java/com/algorithm/hot100/DoublePointer/CatchRainwater/Main.java)
+</li>
+<li>
+思路3:在盛最多水的容器题目中，结合思路二进行优化，既然某个位置的高度为左边最高和右边最高中更小的一个，
 </li>
 </ul>
 
