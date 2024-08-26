@@ -96,3 +96,11 @@ left和right取较小值乘以长度，再把left和right里面夹的每个位�
 </li>
 </ul>
 
+### 子串
+#### 560.和为k的子数组
+[和为k的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked)
+#### 做法：
+前缀和+哈希表。遍历到某个位置时，要判断以这个位置为尾的子数组，是否有第i位，到这个位置的另一个子数组的和为k，如果有，有几个的问题。 <br>
+子数组-子数组还是为子数组,sum为从开始位置到当前位置的数组和;pre数组为前缀和数组，要得到数组和为k的数组,可将pre数组和作为哈希表的键。 <br>
+利用containsKey()方法寻找是否有满足的前缀和，若有，count++，并且此前缀和对应哈希表的值++;若没有，put入哈希表初始值存为1。
+[Java 2024-08-26 时间 23ms/89.25% 内存：45.43MB/38.86%](./src/main/java/com/algorithm/hot100/Substring/AndIsASubarrayOfK/Main.java)
