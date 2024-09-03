@@ -104,3 +104,20 @@ left和right取较小值乘以长度，再把left和right里面夹的每个位�
 子数组-子数组还是为子数组,sum为从开始位置到当前位置的数组和;pre数组为前缀和数组，要得到数组和为k的数组,可将pre数组和作为哈希表的键。 <br>
 利用containsKey()方法寻找是否有满足的前缀和，若有，count++，并且此前缀和对应哈希表的值++;若没有，put入哈希表初始值存为1。
 [Java 2024-08-26 时间 23ms/89.25% 内存：45.43MB/38.86%](./src/main/java/com/algorithm/hot100/Substring/AndIsASubarrayOfK/Main.java)
+
+#### 239.滑动窗口最大值
+[滑动窗口最大值](https://leetcode.cn/problems/sliding-window-maximum/?envType=study-plan-v2&envId=top-100-liked)
+#### 做法：
+<ul>
+<li>
+法一：单调队列。只需遍历一遍nums数组，有两个检验条件，首先头部必须在窗口内，不在窗口内则头部指针h++，直到在窗口内； <br>
+而每遍历一个位置，将它的数值与模拟队列的尾部比较，如果当前值大与模拟队列当前对应的值，则模拟队列尾部t--，直到模拟队列中有一个值大于当前值，然后将当前元素加至队尾； <br>
+初始化一个辅助数组来模拟队列，用于保存可能的最大值的索引。
+</li>
+<li>
+法二：优先队列。
+</li>
+</ul>
+
+
+
