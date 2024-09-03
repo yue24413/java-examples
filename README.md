@@ -113,9 +113,17 @@ left和right取较小值乘以长度，再把left和right里面夹的每个位�
 法一：单调队列。只需遍历一遍nums数组，有两个检验条件，首先头部必须在窗口内，不在窗口内则头部指针h++，直到在窗口内； <br>
 而每遍历一个位置，将它的数值与模拟队列的尾部比较，如果当前值大与模拟队列当前对应的值，则模拟队列尾部t--，直到模拟队列中有一个值大于当前值，然后将当前元素加至队尾； <br>
 初始化一个辅助数组来模拟队列，用于保存可能的最大值的索引。
+
+[Java 2024-09-03 时间 10ms/97.91% 内存：56.69MB/97.03%](./src/main/java/com/algorithm/hot100/Substring/SlidingWindowMaximum/Main.java)
+
 </li>
 <li>
-法二：优先队列。
+法二：优先队列。定义比较器的规则：数值大的排在前面，竖直一样时，则索引大的排在前面。 <br>
+先把前k个元素都放入优先队列里，pq.offer(new int[]{nums[i], i})；第一个窗口最大的数则为pq.peek()[0]；然后再遍历从索引为k开开始的数组，当窗口初始位置
+不满足条件时，弹出，while(pq.peek()[1] <= i-k ) pq.poll();
+
+[Java 2024-08-26 时间 87ms/14.91% 内存：57.52MB/62.70%](./src/main/java/com/algorithm/hot100/Substring/SlidingWindowMaximum/Main.java)
+
 </li>
 </ul>
 
