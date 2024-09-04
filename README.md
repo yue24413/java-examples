@@ -127,5 +127,11 @@ left和right取较小值乘以长度，再把left和right里面夹的每个位�
 </li>
 </ul>
 
-
+### 普通数组
+#### 56.合并区间
+[合并区间](https://leetcode.cn/problems/merge-intervals/description/?envType=study-plan-v2&envId=top-100-liked)
+#### 做法：
+基本思想可以归结为：先将二维数组数组按第一位排序，否则判断条件太多，易混淆。第二，二维数组下标为0的位置为结果数组的第一个数组，后面的数组要比较上一个数组的第二个位置和当前数组
+的1第一个位置大小，如果当前位置的第一个数字大于上一个数组的第二个位置，则无重合，可直接写入。反之，需要比较两个数组的第二个位置谁更大，即包含。
+[Java 2024-09-04 时间 7ms/186.74% 内存：45.47MB/64.36%](./src/main/java/com/algorithm/hot100/OrdinaryArray/MergingInterval/Main.java)
 
